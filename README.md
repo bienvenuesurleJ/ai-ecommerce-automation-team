@@ -1,54 +1,29 @@
-# AI E-COMMERCE AUTOMATION TEAM - Simulation
+# AI Command Center
 
-Application web interactive complète reproduisant le dashboard futuriste de la vidéo TikTok (@nolanpearson.ai).
+Simulation d'une équipe e-commerce pilotée par cinq agents : Research, Creative, Media Buying, Optimization et YOU.
 
-## Fonctionnalités
+**SIMULATION ONLY — NO REAL MONEY SPENT.** Aucune publicité réelle, aucun achat, aucun modèle d'IA externe. Le moteur est local et déterministe.
 
-- **5 équipes d'agents IA** : Research, Creative, Media Buying, Optimization, YOU
-- Agents qui **travaillent réellement** : recherche de produits, création de pubs, lancement de campagnes, optimisation
-- **Simulation financière dynamique** en euros : capital, CA, bénéfice net, ROAS, CPA, ventes, pertes
-- Campagnes gagnantes ET perdantes
-- Communication entre agents (produits → créatifs → campagnes → optimisations)
-- START ALL / STOP ALL + contrôles individuels
-- Approbations utilisateur pour décisions d'argent (scale/kill)
-- Journal d'activité en direct
-- Design néon noir/violet avec animations et personnages
-- **100% simulation** - aucun argent réel
+## Lancer
 
-## Lancer l'application
+GitHub Pages sert `index.html`. En local :
 
-1. Ouvrez un terminal dans ce dossier
-2. Lancez un serveur local :
-   ```bash
-   python3 -m http.server 8080
-   ```
-3. Ouvrez http://localhost:8080 dans votre navigateur
+```bash
+python3 -m http.server 8080
+```
 
-Ou simplement ouvrez `index.html` (fonctionne aussi en file:// pour le test de base).
+## Ce que fait START ALL
 
-## Structure
+Les robots s'activent, les missions avancent, les messages circulent, les campagnes virtuelles dépensent un budget simulé, et le grand livre (capital, CA, bénéfice, ROAS) se met à jour. Les décisions de scale / coupe passent par YOU.
 
-- `index.html` : Interface principale
-- `css/styles.css` : Design futuriste néon
-- `js/simulation.js` : Moteur de simulation séparé (logique métier)
+## Sauvegarde
 
-## Architecture future
+La session est stockée dans le navigateur. Export / import JSON dans Réglages.
 
-Le moteur de simulation est indépendant de l'UI. Pour intégrer de vraies APIs plus tard (Shopify, Meta Ads, OpenAI, etc.) :
+## Sécurité
 
-1. Remplacer les méthodes `doResearch()`, `doCreative()`, etc. par des appels API
-2. Brancher sur une base de données (voir `schema.sql`)
-3. Ajouter authentification et persistance
+La version précédente est sur la branche `backup/pre-command-center`.
 
-## Tests effectués
+## Source
 
-- Lancement individuel et START ALL
-- Communication inter-équipes
-- Campagnes live avec ventes/pertes
-- Calculs financiers cohérents (ROAS, capital, etc.)
-- Reset et configuration du capital
-- Arrêt/reprise des agents
-
-## Avertissement
-
-Ceci est une **simulation purement fictive** destinée à tester l'intérêt du public (TikTok, Instagram, YouTube). Aucune connexion à des plateformes publicitaires ou e-commerce réelles. Aucun argent réel n'est impliqué.
+Le code lisible est dans `source/` (moteur, robots, salle de contrôle, styles). `schema.sql` reste le schéma prévu pour un futur backend. `app.js` est le bundle statique servi par Pages.
